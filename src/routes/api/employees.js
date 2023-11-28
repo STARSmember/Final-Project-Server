@@ -1,11 +1,11 @@
 import { Router } from 'express'
 
 import {
-    getVillain,
-    getVillains,
-    addVillain,
-    updateVillain,
-    deleteVillain,
+    getEmployee,
+    getEmployees,
+    addEmployee,
+    updateEmployee,
+    deleteEmployee,
 } from '../../models/villains'
 
 const router = Router()
@@ -15,43 +15,43 @@ router.get('/', async (req, res) => {
     const page = Number(req.query.page) || 1
     const skip = size * (page - 1)
     const take = size
-    const { count, villains } = await getVillains(skip, take)
+    const { count, employees } = await getEmployees(skip, take)
     res.set({
         'X-Total-Count': count,
         'X-Total-Pages': Math.ceil(count / size),
     })
-    res.send(villains)
+    res.send(employees)
 })
 
 router.get('/:id', async (req, res) => {
-    const villain = await getVillain(req.params.id)
-    if (villain) {
-        res.send(villain)
+    const employee = await getEmployee(req.params.id)
+    if (employee) {
+        res.send(employee)
     } else {
-        res.status(404).send({ msg: 'Villain not found' })
+        res.status(404).send({ msg: 'Employee not found' })
     }
 })
 
 router.post('/', async (req, res) => {
-    const villain = await addVillain(req.body)
-    res.send(villain)
+    const employee = await addEmployee(req.body)
+    res.send(employee)
 })
 
 router.put('/:id', async (req, res) => {
-    const villain = await updateVillain(req.params.id, req.body)
-    if (villain) {
-        res.send(villain)
+    const employee = await updateEmployee(req.params.id, req.body)
+    if (employee) {
+        res.send(employee)
     } else {
-        res.status(404).send({ msg: 'Villain not found' })
+        res.status(404).send({ msg: 'Employee not found' })
     }
 })
 
 router.delete('/:id', async (req, res) => {
-    const villain = await deleteVillain(req.params.id)
-    if (villain) {
-        res.send(villain)
+    const employee = await deleteEmployee(req.params.id)
+    if (employee) {
+        res.send(employee)
     } else {
-        res.status(404).send({ msg: 'Villain not found' })
+        res.status(404).send({ msg: 'Employee not found' })
     }
 })
 
