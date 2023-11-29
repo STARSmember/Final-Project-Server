@@ -1,8 +1,8 @@
 import { Router } from 'express'
 import basicAuth from 'express-basic-auth'
 
-import employees from './employees'
-import villains from './villains'
+import employees from './villains'
+import villains from './employees'
 
 const router = Router()
 
