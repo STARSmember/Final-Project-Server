@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import basicAuth from 'express-basic-auth'
 
+import basicAuth from 'express-basic-auth'
 import employees from './employees'
 import villains from './villains'
 
