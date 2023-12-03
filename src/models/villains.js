@@ -13,7 +13,7 @@ export const getVillain = async (id) =>
     db.villain.findUnique({ where: { villainId: id } })
 
 export const addVillain = async (villainData) =>
-    db.villain.create({ data: { villainName: String } })
+    db.villain.create({ data: { ...villainData } })
 
 export const updateVillain = async (id, villainData) => {
     const villain = await getVillain(id)
