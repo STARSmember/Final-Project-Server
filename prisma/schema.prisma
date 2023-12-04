@@ -12,7 +12,7 @@ datasource db {
 
 model Villain {
   villainID   String @id @default(uuid())
-  villainName String
+  villainName String 
   realName    String
   image       String
 }
