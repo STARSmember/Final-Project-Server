@@ -10,7 +10,7 @@ export const getVillains = async (skip, take) => {
 }
 
 export const getVillain = async (id) =>
-    db.villain.findUnique({ where: { villainId: id } })
+    db.villain.findUnique({ where: { villainID: id } })
 
 export const addVillain = async (villainData) =>
     db.villain.create({ data: { ...villainData } })
@@ -27,4 +27,4 @@ export const updateVillain = async (id, villainData) => {
 }
 
 export const deleteVillain = async (id) =>
-    db.villain.delete({ where: { villainId: id } })
+    db.villain.delete({ where: { villainID: id } })
