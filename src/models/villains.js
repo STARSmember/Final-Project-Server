@@ -19,7 +19,7 @@ export const updateVillain = async (id, villainData) => {
     const villain = await getVillain(id)
     if (villain) {
         return db.villain.update({
-            where: { villainId: id },
+            where: { villainID: id },
             data: { ...villain, ...villainData, updatedAt: new Date() },
         })
     }
